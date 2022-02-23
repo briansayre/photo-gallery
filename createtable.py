@@ -25,7 +25,7 @@ SOFTWARE.
 import pymysql as MySQLdb
 DB_USERNAME = 'admin'
 DB_PASSWORD = 'password'
-DB_NAME = 'please-work-1'
+DB_NAME = 'pleasework1'
 
 conn = MySQLdb.connect(host = "please-work-1.ccjhcsqnldaw.us-east-1.rds.amazonaws.com",
                         user = DB_USERNAME,
@@ -34,7 +34,7 @@ conn = MySQLdb.connect(host = "please-work-1.ccjhcsqnldaw.us-east-1.rds.amazonaw
                         port = 3306)
 
 cursor = conn.cursor ()
-cursor.execute ("SELECT VERSION()")
+cursor.execute("SELECT VERSION()")
 
 cursor.execute ("CREATE TABLE photogallery2 ( \
     PhotoID int PRIMARY KEY NOT NULL AUTO_INCREMENT, \

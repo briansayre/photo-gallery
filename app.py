@@ -45,7 +45,7 @@ BUCKET_NAME = "please-work-1-bucket-gt"
 DB_HOSTNAME = "please-work-1.ccjhcsqnldaw.us-east-1.rds.amazonaws.com"
 DB_USERNAME = 'admin'
 DB_PASSWORD = 'password'
-DB_NAME = 'please-work-1'
+DB_NAME = 'pleasework1'
 
 
 def allowed_file(filename):
@@ -99,7 +99,7 @@ def home_page():
                            db=DB_NAME,
                            port=3306)
     cursor = conn.cursor()
-    cursor.execute("SELECT * FROM please-work-1.photogallery2;")
+    cursor.execute("SELECT * FROM pleasework1.photogallery2;")
     results = cursor.fetchall()
 
     items = []
@@ -146,7 +146,7 @@ def add_photo():
                                    port=3306)
             cursor = conn.cursor()
 
-            statement = "INSERT INTO please-work-1.photogallery2 \
+            statement = "INSERT INTO pleasework1.photogallery2 \
                         (CreationTime,Title,Description,Tags,URL,EXIF) \
                         VALUES (" +\
                         "'"+str(timestamp)+"', '" +\
@@ -175,7 +175,7 @@ def view_photo(photoID):
                            port=3306)
     cursor = conn.cursor()
 
-    cursor.execute("SELECT * FROM please-work-1.photogallery2 \
+    cursor.execute("SELECT * FROM pleasework1.photogallery2 \
                     WHERE PhotoID="+str(photoID)+";")
 
     results = cursor.fetchall()
@@ -209,12 +209,12 @@ def search_page():
                            port=3306)
     cursor = conn.cursor()
 
-    cursor.execute("SELECT * FROM please-work-1.photogallery2 \
+    cursor.execute("SELECT * FROM pleasework1.photogallery2 \
                     WHERE Title LIKE '%"+query + "%' \
                     UNION SELECT * FROM \
-                    please-work-1.photogallery2 WHERE \
+                    pleasework1.photogallery2 WHERE \
                     Description LIKE '%"+query + "%' UNION \
-                    SELECT * FROM please-work-1.photogallery2 \
+                    SELECT * FROM pleasework1.photogallery2 \
                     WHERE Tags LIKE '%"+query+"%' ;")
 
     results = cursor.fetchall()

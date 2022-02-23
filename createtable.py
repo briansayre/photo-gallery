@@ -25,9 +25,9 @@ SOFTWARE.
 import pymysql as MySQLdb
 DB_USERNAME = 'admin'
 DB_PASSWORD = 'password'
-DB_NAME = 'photo-gallery'
+DB_NAME = 'please-work-1'
 
-conn = MySQLdb.connect(host = "photo-gallery-instance-1.ccjhcsqnldaw.us-east-1.rds.amazonaws.com",
+conn = MySQLdb.connect(host = "please-work-1.ccjhcsqnldaw.us-east-1.rds.amazonaws.com",
                         user = DB_USERNAME,
                         passwd = DB_PASSWORD,
                         db = DB_NAME, 

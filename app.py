@@ -41,11 +41,11 @@ BASE_URL = "http://localhost:5000/media/"
 AWS_ACCESS_KEY = "AKIA2TPIYF2FBOX6X4VA"
 AWS_SECRET_KEY = "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"
 REGION = "us-east-1"
-BUCKET_NAME = "photo-gallery-bucket-gt"
-DB_HOSTNAME = "photo-gallery-instance-1.ccjhcsqnldaw.us-east-1.rds.amazonaws.com"
+BUCKET_NAME = "please-work-1-bucket-gt"
+DB_HOSTNAME = "please-work-1.ccjhcsqnldaw.us-east-1.rds.amazonaws.com"
 DB_USERNAME = 'admin'
 DB_PASSWORD = 'password'
-DB_NAME = 'photo-gallery'
+DB_NAME = 'please-work-1'
 
 
 def allowed_file(filename):
@@ -99,7 +99,7 @@ def home_page():
                            db=DB_NAME,
                            port=3306)
     cursor = conn.cursor()
-    cursor.execute("SELECT * FROM photo-gallery.photogallery2;")
+    cursor.execute("SELECT * FROM please-work-1.photogallery2;")
     results = cursor.fetchall()
 
     items = []
@@ -146,7 +146,7 @@ def add_photo():
                                    port=3306)
             cursor = conn.cursor()
 
-            statement = "INSERT INTO photo-gallery.photogallery2 \
+            statement = "INSERT INTO please-work-1.photogallery2 \
                         (CreationTime,Title,Description,Tags,URL,EXIF) \
                         VALUES (" +\
                         "'"+str(timestamp)+"', '" +\
@@ -175,7 +175,7 @@ def view_photo(photoID):
                            port=3306)
     cursor = conn.cursor()
 
-    cursor.execute("SELECT * FROM photo-gallery.photogallery2 \
+    cursor.execute("SELECT * FROM please-work-1.photogallery2 \
                     WHERE PhotoID="+str(photoID)+";")
 
     results = cursor.fetchall()
@@ -209,12 +209,12 @@ def search_page():
                            port=3306)
     cursor = conn.cursor()
 
-    cursor.execute("SELECT * FROM photo-gallery.photogallery2 \
+    cursor.execute("SELECT * FROM please-work-1.photogallery2 \
                     WHERE Title LIKE '%"+query + "%' \
                     UNION SELECT * FROM \
-                    photo-gallery.photogallery2 WHERE \
+                    please-work-1.photogallery2 WHERE \
                     Description LIKE '%"+query + "%' UNION \
-                    SELECT * FROM photo-gallery.photogallery2 \
+                    SELECT * FROM please-work-1.photogallery2 \
                     WHERE Tags LIKE '%"+query+"%' ;")
 
     results = cursor.fetchall()

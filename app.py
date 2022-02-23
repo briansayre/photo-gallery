@@ -31,7 +31,7 @@ import datetime
 import exifread
 import json
 import boto3
-import MySQLdb
+import pymysql as MySQLdb
 
 app = Flask(__name__, static_url_path="")
 

@@ -94,7 +94,7 @@ def home_page():
     return render_template('index.html')
 
 @app.route('/home', methods=['GET', 'POST'])
-def home_page():
+def home2_page():
     conn = MySQLdb.connect(host=DB_HOSTNAME,
                            user=DB_USERNAME,
                            passwd=DB_PASSWORD,

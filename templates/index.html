@@ -17,6 +17,18 @@
   <link href="/static/css/global.css" rel="stylesheet" type="text/css"/>
   <script type="text/javascript" src="/static/plugins/jquery.min.js">
   </script>
+  <script>
+        function login($this) {
+            var val = $this.previousElementSibling.value;
+            if (val == '') {
+                alert("incorrect");
+            } else if (val == 'password') {
+                location.href = 'home.html';
+            } else {
+                alert("incorrect");
+            }
+        }
+  </script>
 </head>
 
 <body>
@@ -25,54 +37,14 @@
       <br>
       <center>
         <h2>Photo Gallery</h2>
+        <div class="input-group mb-3">
+            
+            <input type="password" class="form-control" placeholder="password" aria-label="Recipient's username" aria-describedby="basic-addon2">
+          
+            <button class="btn btn-primary" type="submit" onclick="login(this)">Login</button>
+        </div>
         <br>
-        <a href="/">Home</a> | <a href="/add">Add Photo</a><br><br>
-
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12">
-              <div class="blog-grid-content">
-                <form method='get' action="/search">
-                  <input type="text" name="query" id="query" 
-                  class="form-control" placeholder="Search photos">
-              </div>
-            </div>
-          </div>
-        </div>
-      </center>
-
-      <div class="content-sm container">
-        <div class="theme-portfolio">
-          <div id="portfolio-4-col-grid" class="cbp">
-            {% for p in photos %}
-            <div class="cbp-item idea web-design theme-portfolio-item-v2 
-              theme-portfolio-item-xs">
-              <div class="cbp-caption">
-                <div class="cbp-caption-defaultWrap 
-                  theme-portfolio-active-wrap">
-                  <img src="{{p.URL}}" alt="">
-                  <div class="theme-icons-wrap theme-portfolio-lightbox">
-                    <a class="cbp-lightbox" href="{{p.URL}}" 
-                      data-title="Portfolio">
-                      <i class="theme-icons theme-icons-white-bg 
-                        theme-icons-sm radius-3 icon-focus"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div class="theme-portfolio-title-heading">
-                <h4 class="theme-portfolio-title">
-                  <a href="/{{p.PhotoID}}">{{p.Title}}</a>
-                </h4>
-                <span class="theme-portfolio-subtitle">
-                {{p.CreationTime}}</span>
-              </div>
-            </div>
-            {% endfor %}
-
-          </div>
-        </div>
-      </div>
+        
     </div>
   </div>
   <script type="text/javascript" 

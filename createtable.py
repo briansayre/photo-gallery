@@ -22,7 +22,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 '''
 
-import MySQLdb
+import pymysql as MySQLdb
 DB_USERNAME = 'admin'
 DB_PASSWORD = 'password'
 DB_NAME = 'photo-gallery'

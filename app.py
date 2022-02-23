@@ -33,7 +33,7 @@ import json
 import boto3
 import pymysql as MySQLdb
 
-app = Flask(__name__, static_url_path="/assets")
+app = Flask(__name__)
 
 UPLOAD_FOLDER = os.path.join(app.root_path, 'static', 'media')
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])

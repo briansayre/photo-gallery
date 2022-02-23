@@ -1,0 +1,8 @@
+flask
+os
+time
+datetime
+exifread
+json
+boto3
+MySQLdb

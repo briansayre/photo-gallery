@@ -84,8 +84,7 @@ def s3uploading(filename, filenameWithPath):
     path_filename = "photos/" + filename
     print path_filename
     s3.upload_file(filenameWithPath, bucket, path_filename)
-    s3.put_object(ACL='public-read-write',
-                      Bucket=bucket, Key=path_filename)
+    s3.put_object(Bucket=bucket, Key=path_filename)
 
     return "http://"+BUCKET_NAME +\
         ".s3.amazonaws.com/" + path_filename

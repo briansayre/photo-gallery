@@ -88,7 +88,7 @@ def s3uploading(filename, filenameWithPath):
                       Bucket=bucket, Key=path_filename)
 
     return "http://"+BUCKET_NAME +\
-        ".s3-website-us-east-1.amazonaws.com/" + path_filename
+        ".s3.amazonaws.com/" + path_filename
 
 
 @app.route('/', methods=['GET', 'POST'])

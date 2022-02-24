@@ -76,7 +76,7 @@ def getExifData(path_name):
     return ExifData
 
 
-def s3uploading(filename, filenameWithPath):
+def s3uploading(filename, filenameWithPath): 
     s3 = boto3.client('s3', aws_access_key_id=AWS_ACCESS_KEY,
                       aws_secret_access_key=AWS_SECRET_KEY)
 
@@ -84,8 +84,9 @@ def s3uploading(filename, filenameWithPath):
     path_filename = "photos/" + filename
     print path_filename
     s3.upload_file(filenameWithPath, bucket, path_filename)
-    s3.put_object(Bucket=bucket, Key=path_filename)
+    # s3.put_object(Bucket=bucket, Key=path_filename)
 
+    print "s3uploading end"
     return "http://"+BUCKET_NAME +\
         ".s3.amazonaws.com/" + path_filename
 

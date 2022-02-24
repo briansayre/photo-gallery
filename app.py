@@ -132,11 +132,12 @@ def add_photo():
         if file and allowed_file(file.filename):
             filename = file.filename
             filenameWithPath = os.path.join(UPLOAD_FOLDER, filename)
-            print filenameWithPath
+            print "filenamewpath: " + filenameWithPath
+            print "filename: " + filename
             file.save(filenameWithPath)
             uploadedFileURL = s3uploading(filename, filenameWithPath)
             ExifData = getExifData(filenameWithPath)
-            print ExifData
+            print "Exif: " + ExifData
             ts = time.time()
             timestamp = datetime.datetime.\
                 fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
@@ -163,7 +164,7 @@ def add_photo():
             conn.commit()
             conn.close()
 
-        return redirect('/')
+        return redirect('/home')
     else:
         return render_template('form.html')
 
